@@ -17,7 +17,7 @@
             <h2 class="panel-title">用户登录</h2>
         </div>
         <div class="panel-body">
-            <form action="{% url 'users:login' %}" method="post" class="form-horizontal">
+            <form action="{% url 'users:user_login' %}" method="post" class="form-horizontal">
                 {% csrf_token %}
                 <h4 class="text-center text-danger">{{msg}}</h4>
                 <div class="form-group">
@@ -27,6 +27,7 @@
                     </div>
                     <div class="col-sm-3 error_msg"></div>
                 </div>
+                <input type="hidden" name="next" value="{{next_url}}">
                 <div class="form-group">
                     <label for="password" class="col-sm-3 control-label">Password</label>
                     <div class="col-sm-5">
@@ -46,8 +47,7 @@
                          <a href="#" onclick="change_code()" title="换一换">换一换</a>
                     </div>
                 </div>
-                {% endif %}
-
+                {%endif%}
                 <div class="form-group">
                     <div class="col-sm-offset-3 col-sm-8">
                         <div class="checkbox">
