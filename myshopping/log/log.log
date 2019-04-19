@@ -1,0 +1,915 @@
+(0.001) SELECT @@SQL_AUTO_IS_NULL; args=None
+(0.000) SELECT VERSION(); args=None
+(0.001) SELECT @@SQL_AUTO_IS_NULL; args=None
+(0.001) SELECT VERSION(); args=None
+(0.001) SELECT @@SQL_AUTO_IS_NULL; args=None
+(0.000) SELECT VERSION(); args=None
+(0.000) SELECT @@SQL_AUTO_IS_NULL; args=None
+(0.000) SELECT VERSION(); args=None
+(0.000) SELECT @@SQL_AUTO_IS_NULL; args=None
+(0.000) SELECT VERSION(); args=None
+(0.001) SELECT @@SQL_AUTO_IS_NULL; args=None
+(0.000) SELECT VERSION(); args=None
+(0.001) SELECT @@SQL_AUTO_IS_NULL; args=None
+(0.000) SELECT VERSION(); args=None
+(0.000) SELECT @@SQL_AUTO_IS_NULL; args=None
+(0.001) SELECT VERSION(); args=None
+(0.068) SHOW FULL TABLES; args=None
+(0.001) SELECT `django_migrations`.`app`, `django_migrations`.`name` FROM `django_migrations`; args=()
+(0.001) SELECT @@SQL_AUTO_IS_NULL; args=None
+(0.001) SELECT @@sql_mode; args=None
+(0.000) SELECT VERSION(); args=None
+(0.004) SHOW FULL TABLES; args=None
+(0.001) SELECT `django_migrations`.`app`, `django_migrations`.`name` FROM `django_migrations`; args=()
+(0.003) SHOW FULL TABLES; args=None
+(0.000) SELECT `django_migrations`.`app`, `django_migrations`.`name` FROM `django_migrations`; args=()
+CREATE TABLE `users_userinfo` (`id` integer AUTO_INCREMENT NOT NULL PRIMARY KEY, `nikename` varchar(255) NOT NULL UNIQUE, `age` integer NOT NULL, `gender` varchar(10) NOT NULL, `avatar` varchar(100) NOT NULL, `phone` varchar(50) NOT NULL, `user_id` integer NOT NULL UNIQUE); (params None)
+(0.019) CREATE TABLE `users_userinfo` (`id` integer AUTO_INCREMENT NOT NULL PRIMARY KEY, `nikename` varchar(255) NOT NULL UNIQUE, `age` integer NOT NULL, `gender` varchar(10) NOT NULL, `avatar` varchar(100) NOT NULL, `phone` varchar(50) NOT NULL, `user_id` integer NOT NULL UNIQUE); args=None
+(0.011) SELECT engine FROM information_schema.tables WHERE table_name = 'users_userinfo'; args=['users_userinfo']
+(0.005) SELECT engine FROM information_schema.tables WHERE table_name = 'users_userinfo'; args=['users_userinfo']
+(0.003) SELECT engine FROM information_schema.tables WHERE table_name = 'users_userinfo'; args=['users_userinfo']
+(0.004) SELECT engine FROM information_schema.tables WHERE table_name = 'users_userinfo'; args=['users_userinfo']
+(0.003) SELECT engine FROM information_schema.tables WHERE table_name = 'users_userinfo'; args=['users_userinfo']
+(0.004) SELECT engine FROM information_schema.tables WHERE table_name = 'users_userinfo'; args=['users_userinfo']
+(0.005) SELECT engine FROM information_schema.tables WHERE table_name = 'users_userinfo'; args=['users_userinfo']
+ALTER TABLE `users_userinfo` ADD CONSTRAINT `users_userinfo_user_id_6acffaf6_fk_auth_user_id` FOREIGN KEY (`user_id`) REFERENCES `auth_user` (`id`); (params ())
+(0.032) ALTER TABLE `users_userinfo` ADD CONSTRAINT `users_userinfo_user_id_6acffaf6_fk_auth_user_id` FOREIGN KEY (`user_id`) REFERENCES `auth_user` (`id`); args=()
+(0.003) SHOW FULL TABLES; args=None
+(0.000) INSERT INTO `django_migrations` (`app`, `name`, `applied`) VALUES ('users', '0001_initial', '2019-04-18 13:36:25'); args=['users', '0001_initial', '2019-04-18 13:36:25']
+(0.003) SHOW FULL TABLES; args=None
+(0.000) SELECT `django_migrations`.`app`, `django_migrations`.`name` FROM `django_migrations`; args=()
+(0.001) SELECT `django_content_type`.`id`, `django_content_type`.`app_label`, `django_content_type`.`model` FROM `django_content_type` WHERE (`django_content_type`.`app_label` = 'admin' AND `django_content_type`.`model` = 'logentry'); args=('admin', 'logentry')
+(0.001) SELECT `auth_permission`.`content_type_id`, `auth_permission`.`codename` FROM `auth_permission` INNER JOIN `django_content_type` ON (`auth_permission`.`content_type_id` = `django_content_type`.`id`) WHERE `auth_permission`.`content_type_id` IN (1) ORDER BY `django_content_type`.`app_label` ASC, `django_content_type`.`model` ASC, `auth_permission`.`codename` ASC; args=(1,)
+(0.001) SELECT `django_content_type`.`id`, `django_content_type`.`app_label`, `django_content_type`.`model` FROM `django_content_type` WHERE `django_content_type`.`app_label` = 'admin'; args=('admin',)
+(0.000) SELECT `django_content_type`.`id`, `django_content_type`.`app_label`, `django_content_type`.`model` FROM `django_content_type` WHERE (`django_content_type`.`app_label` = 'auth' AND `django_content_type`.`model` = 'permission'); args=('auth', 'permission')
+(0.001) SELECT `django_content_type`.`id`, `django_content_type`.`app_label`, `django_content_type`.`model` FROM `django_content_type` WHERE (`django_content_type`.`app_label` = 'auth' AND `django_content_type`.`model` = 'group'); args=('auth', 'group')
+(0.000) SELECT `django_content_type`.`id`, `django_content_type`.`app_label`, `django_content_type`.`model` FROM `django_content_type` WHERE (`django_content_type`.`app_label` = 'auth' AND `django_content_type`.`model` = 'user'); args=('auth', 'user')
+(0.002) SELECT `auth_permission`.`content_type_id`, `auth_permission`.`codename` FROM `auth_permission` INNER JOIN `django_content_type` ON (`auth_permission`.`content_type_id` = `django_content_type`.`id`) WHERE `auth_permission`.`content_type_id` IN (2, 3, 4) ORDER BY `django_content_type`.`app_label` ASC, `django_content_type`.`model` ASC, `auth_permission`.`codename` ASC; args=(2, 3, 4)
+(0.000) SELECT `django_content_type`.`id`, `django_content_type`.`app_label`, `django_content_type`.`model` FROM `django_content_type` WHERE `django_content_type`.`app_label` = 'auth'; args=('auth',)
+(0.001) SELECT `django_content_type`.`id`, `django_content_type`.`app_label`, `django_content_type`.`model` FROM `django_content_type` WHERE (`django_content_type`.`app_label` = 'contenttypes' AND `django_content_type`.`model` = 'contenttype'); args=('contenttypes', 'contenttype')
+(0.001) SELECT `auth_permission`.`content_type_id`, `auth_permission`.`codename` FROM `auth_permission` INNER JOIN `django_content_type` ON (`auth_permission`.`content_type_id` = `django_content_type`.`id`) WHERE `auth_permission`.`content_type_id` IN (5) ORDER BY `django_content_type`.`app_label` ASC, `django_content_type`.`model` ASC, `auth_permission`.`codename` ASC; args=(5,)
+(0.001) SELECT `django_content_type`.`id`, `django_content_type`.`app_label`, `django_content_type`.`model` FROM `django_content_type` WHERE `django_content_type`.`app_label` = 'contenttypes'; args=('contenttypes',)
+(0.000) SELECT `django_content_type`.`id`, `django_content_type`.`app_label`, `django_content_type`.`model` FROM `django_content_type` WHERE (`django_content_type`.`app_label` = 'sessions' AND `django_content_type`.`model` = 'session'); args=('sessions', 'session')
+(0.001) SELECT `auth_permission`.`content_type_id`, `auth_permission`.`codename` FROM `auth_permission` INNER JOIN `django_content_type` ON (`auth_permission`.`content_type_id` = `django_content_type`.`id`) WHERE `auth_permission`.`content_type_id` IN (6) ORDER BY `django_content_type`.`app_label` ASC, `django_content_type`.`model` ASC, `auth_permission`.`codename` ASC; args=(6,)
+(0.000) SELECT `django_content_type`.`id`, `django_content_type`.`app_label`, `django_content_type`.`model` FROM `django_content_type` WHERE `django_content_type`.`app_label` = 'sessions'; args=('sessions',)
+(0.001) SELECT `django_content_type`.`id`, `django_content_type`.`app_label`, `django_content_type`.`model` FROM `django_content_type` WHERE (`django_content_type`.`app_label` = 'users' AND `django_content_type`.`model` = 'userinfo'); args=('users', 'userinfo')
+(0.000) SELECT `django_content_type`.`id`, `django_content_type`.`app_label`, `django_content_type`.`model` FROM `django_content_type` WHERE (`django_content_type`.`app_label` = 'users' AND `django_content_type`.`model` = 'userinfo'); args=('users', 'userinfo')
+(0.001) INSERT INTO `django_content_type` (`app_label`, `model`) VALUES ('users', 'userinfo'); args=['users', 'userinfo']
+(0.000) SELECT `auth_permission`.`content_type_id`, `auth_permission`.`codename` FROM `auth_permission` INNER JOIN `django_content_type` ON (`auth_permission`.`content_type_id` = `django_content_type`.`id`) WHERE `auth_permission`.`content_type_id` IN (7) ORDER BY `django_content_type`.`app_label` ASC, `django_content_type`.`model` ASC, `auth_permission`.`codename` ASC; args=(7,)
+(0.002) INSERT INTO `auth_permission` (`name`, `content_type_id`, `codename`) VALUES ('Can add user info', 7, 'add_userinfo'), ('Can change user info', 7, 'change_userinfo'), ('Can delete user info', 7, 'delete_userinfo'); args=('Can add user info', 7, 'add_userinfo', 'Can change user info', 7, 'change_userinfo', 'Can delete user info', 7, 'delete_userinfo')
+(0.001) SELECT `django_content_type`.`id`, `django_content_type`.`app_label`, `django_content_type`.`model` FROM `django_content_type` WHERE `django_content_type`.`app_label` = 'users'; args=('users',)
+(0.000) SELECT @@SQL_AUTO_IS_NULL; args=None
+(0.000) SELECT VERSION(); args=None
+(0.003) SHOW FULL TABLES; args=None
+(0.001) SELECT `django_migrations`.`app`, `django_migrations`.`name` FROM `django_migrations`; args=()
+"GET /users/index/ HTTP/1.1" 200 10208
+"GET /users/index/ HTTP/1.1" 200 10208
+Internal Server Error: /users/register/
+Traceback (most recent call last):
+  File "D:\mysoft\webEvn\webevn\lib\site-packages\django\core\handlers\exception.py", line 41, in inner
+    response = get_response(request)
+  File "D:\mysoft\webEvn\webevn\lib\site-packages\django\core\handlers\base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "D:\mysoft\webEvn\webevn\lib\site-packages\django\core\handlers\base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\mysoft\webEvn\project\shopping\myshopping\users\views.py", line 31, in register
+    return render(request, "blog/register.html", context)
+  File "D:\mysoft\webEvn\webevn\lib\site-packages\django\shortcuts.py", line 30, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "D:\mysoft\webEvn\webevn\lib\site-packages\django\template\loader.py", line 67, in render_to_string
+    template = get_template(template_name, using=using)
+  File "D:\mysoft\webEvn\webevn\lib\site-packages\django\template\loader.py", line 25, in get_template
+    raise TemplateDoesNotExist(template_name, chain=chain)
+django.template.exceptions.TemplateDoesNotExist: blog/register.html
+(0.000) SELECT @@SQL_AUTO_IS_NULL; args=None
+(0.000) SELECT VERSION(); args=None
+(0.001) SELECT `django_session`.`session_key`, `django_session`.`session_data`, `django_session`.`expire_date` FROM `django_session` WHERE (`django_session`.`session_key` = '1q100yv7cwdnsrnalof7b3ipge1cz3hh' AND `django_session`.`expire_date` > '2019-04-18 13:37:01'); args=('1q100yv7cwdnsrnalof7b3ipge1cz3hh', '2019-04-18 13:37:01')
+"GET /users/register/ HTTP/1.1" 500 82800
+(0.000) SELECT @@SQL_AUTO_IS_NULL; args=None
+(0.001) SELECT VERSION(); args=None
+(0.005) SHOW FULL TABLES; args=None
+(0.001) SELECT `django_migrations`.`app`, `django_migrations`.`name` FROM `django_migrations`; args=()
+(0.001) SELECT @@SQL_AUTO_IS_NULL; args=None
+(0.001) SELECT VERSION(); args=None
+(0.004) SHOW FULL TABLES; args=None
+(0.001) SELECT `django_migrations`.`app`, `django_migrations`.`name` FROM `django_migrations`; args=()
+Internal Server Error: /users/register/
+Traceback (most recent call last):
+  File "D:\mysoft\webEvn\webevn\lib\site-packages\django\template\backends\django.py", line 66, in render
+    return self.template.render(context)
+  File "D:\mysoft\webEvn\webevn\lib\site-packages\django\template\base.py", line 207, in render
+    return self._render(context)
+  File "D:\mysoft\webEvn\webevn\lib\site-packages\django\template\base.py", line 199, in _render
+    return self.nodelist.render(context)
+  File "D:\mysoft\webEvn\webevn\lib\site-packages\django\template\base.py", line 990, in render
+    bit = node.render_annotated(context)
+  File "D:\mysoft\webEvn\webevn\lib\site-packages\django\template\base.py", line 957, in render_annotated
+    return self.render(context)
+  File "D:\mysoft\webEvn\webevn\lib\site-packages\django\template\loader_tags.py", line 154, in render
+    compiled_parent = self.get_parent(context)
+  File "D:\mysoft\webEvn\webevn\lib\site-packages\django\template\loader_tags.py", line 151, in get_parent
+    return self.find_template(parent, context)
+  File "D:\mysoft\webEvn\webevn\lib\site-packages\django\template\loader_tags.py", line 131, in find_template
+    template_name, skip=history,
+  File "D:\mysoft\webEvn\webevn\lib\site-packages\django\template\engine.py", line 148, in find_template
+    raise TemplateDoesNotExist(name, tried=tried)
+django.template.exceptions.TemplateDoesNotExist: common.html
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\mysoft\webEvn\webevn\lib\site-packages\django\core\handlers\exception.py", line 41, in inner
+    response = get_response(request)
+  File "D:\mysoft\webEvn\webevn\lib\site-packages\django\core\handlers\base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "D:\mysoft\webEvn\webevn\lib\site-packages\django\core\handlers\base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\mysoft\webEvn\project\shopping\myshopping\users\views.py", line 30, in register
+    return render(request, "users/register.html", context)
+  File "D:\mysoft\webEvn\webevn\lib\site-packages\django\shortcuts.py", line 30, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "D:\mysoft\webEvn\webevn\lib\site-packages\django\template\loader.py", line 68, in render_to_string
+    return template.render(context, request)
+  File "D:\mysoft\webEvn\webevn\lib\site-packages\django\template\backends\django.py", line 68, in render
+    reraise(exc, self.backend)
+  File "D:\mysoft\webEvn\webevn\lib\site-packages\django\template\backends\django.py", line 89, in reraise
+    six.reraise(exc.__class__, new, sys.exc_info()[2])
+  File "D:\mysoft\webEvn\webevn\lib\site-packages\django\utils\six.py", line 685, in reraise
+    raise value.with_traceback(tb)
+  File "D:\mysoft\webEvn\webevn\lib\site-packages\django\template\backends\django.py", line 66, in render
+    return self.template.render(context)
+  File "D:\mysoft\webEvn\webevn\lib\site-packages\django\template\base.py", line 207, in render
+    return self._render(context)
+  File "D:\mysoft\webEvn\webevn\lib\site-packages\django\template\base.py", line 199, in _render
+    return self.nodelist.render(context)
+  File "D:\mysoft\webEvn\webevn\lib\site-packages\django\template\base.py", line 990, in render
+    bit = node.render_annotated(context)
+  File "D:\mysoft\webEvn\webevn\lib\site-packages\django\template\base.py", line 957, in render_annotated
+    return self.render(context)
+  File "D:\mysoft\webEvn\webevn\lib\site-packages\django\template\loader_tags.py", line 154, in render
+    compiled_parent = self.get_parent(context)
+  File "D:\mysoft\webEvn\webevn\lib\site-packages\django\template\loader_tags.py", line 151, in get_parent
+    return self.find_template(parent, context)
+  File "D:\mysoft\webEvn\webevn\lib\site-packages\django\template\loader_tags.py", line 131, in find_template
+    template_name, skip=history,
+  File "D:\mysoft\webEvn\webevn\lib\site-packages\django\template\engine.py", line 148, in find_template
+    raise TemplateDoesNotExist(name, tried=tried)
+django.template.exceptions.TemplateDoesNotExist: common.html
+"GET /users/register/ HTTP/1.1" 500 167853
+Internal Server Error: /users/register/
+Traceback (most recent call last):
+  File "D:\mysoft\webEvn\webevn\lib\site-packages\django\template\backends\django.py", line 66, in render
+    return self.template.render(context)
+  File "D:\mysoft\webEvn\webevn\lib\site-packages\django\template\base.py", line 207, in render
+    return self._render(context)
+  File "D:\mysoft\webEvn\webevn\lib\site-packages\django\template\base.py", line 199, in _render
+    return self.nodelist.render(context)
+  File "D:\mysoft\webEvn\webevn\lib\site-packages\django\template\base.py", line 990, in render
+    bit = node.render_annotated(context)
+  File "D:\mysoft\webEvn\webevn\lib\site-packages\django\template\base.py", line 957, in render_annotated
+    return self.render(context)
+  File "D:\mysoft\webEvn\webevn\lib\site-packages\django\template\loader_tags.py", line 154, in render
+    compiled_parent = self.get_parent(context)
+  File "D:\mysoft\webEvn\webevn\lib\site-packages\django\template\loader_tags.py", line 151, in get_parent
+    return self.find_template(parent, context)
+  File "D:\mysoft\webEvn\webevn\lib\site-packages\django\template\loader_tags.py", line 131, in find_template
+    template_name, skip=history,
+  File "D:\mysoft\webEvn\webevn\lib\site-packages\django\template\engine.py", line 148, in find_template
+    raise TemplateDoesNotExist(name, tried=tried)
+django.template.exceptions.TemplateDoesNotExist: common.html
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\mysoft\webEvn\webevn\lib\site-packages\django\core\handlers\exception.py", line 41, in inner
+    response = get_response(request)
+  File "D:\mysoft\webEvn\webevn\lib\site-packages\django\core\handlers\base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "D:\mysoft\webEvn\webevn\lib\site-packages\django\core\handlers\base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\mysoft\webEvn\project\shopping\myshopping\users\views.py", line 30, in register
+    return render(request, "users/register.html", context)
+  File "D:\mysoft\webEvn\webevn\lib\site-packages\django\shortcuts.py", line 30, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "D:\mysoft\webEvn\webevn\lib\site-packages\django\template\loader.py", line 68, in render_to_string
+    return template.render(context, request)
+  File "D:\mysoft\webEvn\webevn\lib\site-packages\django\template\backends\django.py", line 68, in render
+    reraise(exc, self.backend)
+  File "D:\mysoft\webEvn\webevn\lib\site-packages\django\template\backends\django.py", line 89, in reraise
+    six.reraise(exc.__class__, new, sys.exc_info()[2])
+  File "D:\mysoft\webEvn\webevn\lib\site-packages\django\utils\six.py", line 685, in reraise
+    raise value.with_traceback(tb)
+  File "D:\mysoft\webEvn\webevn\lib\site-packages\django\template\backends\django.py", line 66, in render
+    return self.template.render(context)
+  File "D:\mysoft\webEvn\webevn\lib\site-packages\django\template\base.py", line 207, in render
+    return self._render(context)
+  File "D:\mysoft\webEvn\webevn\lib\site-packages\django\template\base.py", line 199, in _render
+    return self.nodelist.render(context)
+  File "D:\mysoft\webEvn\webevn\lib\site-packages\django\template\base.py", line 990, in render
+    bit = node.render_annotated(context)
+  File "D:\mysoft\webEvn\webevn\lib\site-packages\django\template\base.py", line 957, in render_annotated
+    return self.render(context)
+  File "D:\mysoft\webEvn\webevn\lib\site-packages\django\template\loader_tags.py", line 154, in render
+    compiled_parent = self.get_parent(context)
+  File "D:\mysoft\webEvn\webevn\lib\site-packages\django\template\loader_tags.py", line 151, in get_parent
+    return self.find_template(parent, context)
+  File "D:\mysoft\webEvn\webevn\lib\site-packages\django\template\loader_tags.py", line 131, in find_template
+    template_name, skip=history,
+  File "D:\mysoft\webEvn\webevn\lib\site-packages\django\template\engine.py", line 148, in find_template
+    raise TemplateDoesNotExist(name, tried=tried)
+django.template.exceptions.TemplateDoesNotExist: common.html
+"GET /users/register/ HTTP/1.1" 500 59
+"GET /users/register/ HTTP/1.1" 500 167853
+Internal Server Error: /users/register/
+Traceback (most recent call last):
+  File "D:\mysoft\webEvn\webevn\lib\site-packages\django\urls\base.py", line 77, in reverse
+    extra, resolver = resolver.namespace_dict[ns]
+KeyError: 'blog'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\mysoft\webEvn\webevn\lib\site-packages\django\core\handlers\exception.py", line 41, in inner
+    response = get_response(request)
+  File "D:\mysoft\webEvn\webevn\lib\site-packages\django\core\handlers\base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "D:\mysoft\webEvn\webevn\lib\site-packages\django\core\handlers\base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\mysoft\webEvn\project\shopping\myshopping\users\views.py", line 30, in register
+    return render(request, "users/register.html", context)
+  File "D:\mysoft\webEvn\webevn\lib\site-packages\django\shortcuts.py", line 30, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "D:\mysoft\webEvn\webevn\lib\site-packages\django\template\loader.py", line 68, in render_to_string
+    return template.render(context, request)
+  File "D:\mysoft\webEvn\webevn\lib\site-packages\django\template\backends\django.py", line 66, in render
+    return self.template.render(context)
+  File "D:\mysoft\webEvn\webevn\lib\site-packages\django\template\base.py", line 207, in render
+    return self._render(context)
+  File "D:\mysoft\webEvn\webevn\lib\site-packages\django\template\base.py", line 199, in _render
+    return self.nodelist.render(context)
+  File "D:\mysoft\webEvn\webevn\lib\site-packages\django\template\base.py", line 990, in render
+    bit = node.render_annotated(context)
+  File "D:\mysoft\webEvn\webevn\lib\site-packages\django\template\base.py", line 957, in render_annotated
+    return self.render(context)
+  File "D:\mysoft\webEvn\webevn\lib\site-packages\django\template\loader_tags.py", line 177, in render
+    return compiled_parent._render(context)
+  File "D:\mysoft\webEvn\webevn\lib\site-packages\django\template\base.py", line 199, in _render
+    return self.nodelist.render(context)
+  File "D:\mysoft\webEvn\webevn\lib\site-packages\django\template\base.py", line 990, in render
+    bit = node.render_annotated(context)
+  File "D:\mysoft\webEvn\webevn\lib\site-packages\django\template\base.py", line 957, in render_annotated
+    return self.render(context)
+  File "D:\mysoft\webEvn\webevn\lib\site-packages\django\template\loader_tags.py", line 72, in render
+    result = block.nodelist.render(context)
+  File "D:\mysoft\webEvn\webevn\lib\site-packages\django\template\base.py", line 990, in render
+    bit = node.render_annotated(context)
+  File "D:\mysoft\webEvn\webevn\lib\site-packages\django\template\base.py", line 957, in render_annotated
+    return self.render(context)
+  File "D:\mysoft\webEvn\webevn\lib\site-packages\django\template\defaulttags.py", line 458, in render
+    url = reverse(view_name, args=args, kwargs=kwargs, current_app=current_app)
+  File "D:\mysoft\webEvn\webevn\lib\site-packages\django\urls\base.py", line 87, in reverse
+    raise NoReverseMatch("%s is not a registered namespace" % key)
+django.urls.exceptions.NoReverseMatch: 'blog' is not a registered namespace
+"GET /users/register/ HTTP/1.1" 500 162757
+(0.001) SELECT @@SQL_AUTO_IS_NULL; args=None
+(0.000) SELECT VERSION(); args=None
+(0.000) SELECT `django_session`.`session_key`, `django_session`.`session_data`, `django_session`.`expire_date` FROM `django_session` WHERE (`django_session`.`session_key` = '992yz1vagi3q6npgrogc5v8u9yjg7ed7' AND `django_session`.`expire_date` > '2019-04-18 14:14:31'); args=('992yz1vagi3q6npgrogc5v8u9yjg7ed7', '2019-04-18 14:14:31')
+Exception while resolving variable 'loginUser' in template 'users/register.html'.
+Traceback (most recent call last):
+  File "D:\mysoft\webEvn\webevn\lib\site-packages\django\template\base.py", line 882, in _resolve_lookup
+    current = current[bit]
+  File "D:\mysoft\webEvn\webevn\lib\site-packages\django\contrib\sessions\backends\base.py", line 57, in __getitem__
+    return self._session[key]
+KeyError: 'loginUser'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\mysoft\webEvn\webevn\lib\site-packages\django\template\base.py", line 890, in _resolve_lookup
+    current = getattr(current, bit)
+AttributeError: 'SessionStore' object has no attribute 'loginUser'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\mysoft\webEvn\webevn\lib\site-packages\django\template\base.py", line 896, in _resolve_lookup
+    current = current[int(bit)]
+ValueError: invalid literal for int() with base 10: 'loginUser'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\mysoft\webEvn\webevn\lib\site-packages\django\template\base.py", line 903, in _resolve_lookup
+    (bit, current))  # missing attribute
+django.template.base.VariableDoesNotExist: Failed lookup for key [loginUser] in '<django.contrib.sessions.backends.db.SessionStore object at 0x000001E141E626A0>'
+Exception while resolving variable 'loginUser' in template 'users/register.html'.
+Traceback (most recent call last):
+  File "D:\mysoft\webEvn\webevn\lib\site-packages\django\template\base.py", line 882, in _resolve_lookup
+    current = current[bit]
+  File "D:\mysoft\webEvn\webevn\lib\site-packages\django\contrib\sessions\backends\base.py", line 57, in __getitem__
+    return self._session[key]
+KeyError: 'loginUser'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\mysoft\webEvn\webevn\lib\site-packages\django\template\base.py", line 890, in _resolve_lookup
+    current = getattr(current, bit)
+AttributeError: 'SessionStore' object has no attribute 'loginUser'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\mysoft\webEvn\webevn\lib\site-packages\django\template\base.py", line 896, in _resolve_lookup
+    current = current[int(bit)]
+ValueError: invalid literal for int() with base 10: 'loginUser'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\mysoft\webEvn\webevn\lib\site-packages\django\template\base.py", line 903, in _resolve_lookup
+    (bit, current))  # missing attribute
+django.template.base.VariableDoesNotExist: Failed lookup for key [loginUser] in '<django.contrib.sessions.backends.db.SessionStore object at 0x000001E141E626A0>'
+Exception while resolving variable 'loginUser' in template 'users/register.html'.
+Traceback (most recent call last):
+  File "D:\mysoft\webEvn\webevn\lib\site-packages\django\template\base.py", line 882, in _resolve_lookup
+    current = current[bit]
+  File "D:\mysoft\webEvn\webevn\lib\site-packages\django\contrib\sessions\backends\base.py", line 57, in __getitem__
+    return self._session[key]
+KeyError: 'loginUser'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\mysoft\webEvn\webevn\lib\site-packages\django\template\base.py", line 890, in _resolve_lookup
+    current = getattr(current, bit)
+AttributeError: 'SessionStore' object has no attribute 'loginUser'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\mysoft\webEvn\webevn\lib\site-packages\django\template\base.py", line 896, in _resolve_lookup
+    current = current[int(bit)]
+ValueError: invalid literal for int() with base 10: 'loginUser'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\mysoft\webEvn\webevn\lib\site-packages\django\template\base.py", line 903, in _resolve_lookup
+    (bit, current))  # missing attribute
+django.template.base.VariableDoesNotExist: Failed lookup for key [loginUser] in '<django.contrib.sessions.backends.db.SessionStore object at 0x000001E141E626A0>'
+"GET /users/register/ HTTP/1.1" 200 11214
+"GET /static/css/index.css HTTP/1.1" 304 0
+(0.001) SELECT @@SQL_AUTO_IS_NULL; args=None
+(0.000) SELECT VERSION(); args=None
+(0.001) SELECT `django_session`.`session_key`, `django_session`.`session_data`, `django_session`.`expire_date` FROM `django_session` WHERE (`django_session`.`session_key` = '992yz1vagi3q6npgrogc5v8u9yjg7ed7' AND `django_session`.`expire_date` > '2019-04-18 14:14:33'); args=('992yz1vagi3q6npgrogc5v8u9yjg7ed7', '2019-04-18 14:14:33')
+(0.001) UPDATE `django_session` SET `session_data` = 'MDMwZmFiNmRkNDJkNjg5MDk3MTQ2NjIwYjFiNGJmMDkyYjczN2RkYzp7ImNvZGUiOiJ3ZXR5In0=', `expire_date` = '2019-05-02 14:14:35' WHERE `django_session`.`session_key` = '992yz1vagi3q6npgrogc5v8u9yjg7ed7'; args=('MDMwZmFiNmRkNDJkNjg5MDk3MTQ2NjIwYjFiNGJmMDkyYjczN2RkYzp7ImNvZGUiOiJ3ZXR5In0=', '2019-05-02 14:14:35', '992yz1vagi3q6npgrogc5v8u9yjg7ed7')
+"GET /users/code/ HTTP/1.1" 200 1815
+Exception while resolving variable 'name' in template 'unknown'.
+Traceback (most recent call last):
+  File "D:\mysoft\webEvn\webevn\lib\site-packages\django\core\handlers\exception.py", line 41, in inner
+    response = get_response(request)
+  File "D:\mysoft\webEvn\webevn\lib\site-packages\django\core\handlers\base.py", line 172, in _get_response
+    resolver_match = resolver.resolve(request.path_info)
+  File "D:\mysoft\webEvn\webevn\lib\site-packages\django\urls\resolvers.py", line 392, in resolve
+    raise Resolver404({'tried': tried, 'path': new_path})
+django.urls.exceptions.Resolver404: {'tried': [[<RegexURLResolver <module 'users.urls' from 'D:\\mysoft\\webEvn\\project\\shopping\\myshopping\\users\\urls.py'> (None:users) ^users/>, <RegexURLPattern index ^index/$>], [<RegexURLResolver <module 'users.urls' from 'D:\\mysoft\\webEvn\\project\\shopping\\myshopping\\users\\urls.py'> (None:users) ^users/>, <RegexURLPattern user_login ^login/$>], [<RegexURLResolver <module 'users.urls' from 'D:\\mysoft\\webEvn\\project\\shopping\\myshopping\\users\\urls.py'> (None:users) ^users/>, <RegexURLPattern register ^register/$>], [<RegexURLResolver <module 'users.urls' from 'D:\\mysoft\\webEvn\\project\\shopping\\myshopping\\users\\urls.py'> (None:users) ^users/>, <RegexURLPattern user_logout ^logout/$>], [<RegexURLResolver <module 'users.urls' from 'D:\\mysoft\\webEvn\\project\\shopping\\myshopping\\users\\urls.py'> (None:users) ^users/>, <RegexURLPattern code ^code/$>], [<RegexURLResolver <RegexURLPattern list> (admin:admin) ^admin/>]], 'path': 'users/check_user/'}
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\mysoft\webEvn\webevn\lib\site-packages\django\template\base.py", line 882, in _resolve_lookup
+    current = current[bit]
+TypeError: 'RegexURLResolver' object is not subscriptable
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\mysoft\webEvn\webevn\lib\site-packages\django\template\base.py", line 890, in _resolve_lookup
+    current = getattr(current, bit)
+AttributeError: 'RegexURLResolver' object has no attribute 'name'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\mysoft\webEvn\webevn\lib\site-packages\django\template\base.py", line 896, in _resolve_lookup
+    current = current[int(bit)]
+ValueError: invalid literal for int() with base 10: 'name'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\mysoft\webEvn\webevn\lib\site-packages\django\template\base.py", line 903, in _resolve_lookup
+    (bit, current))  # missing attribute
+django.template.base.VariableDoesNotExist: Failed lookup for key [name] in '<RegexURLResolver <RegexURLPattern list> (admin:admin) ^admin/>'
+Not Found: /users/check_user/
+"POST /users/check_user/ HTTP/1.1" 404 2881
+(0.001) SELECT @@SQL_AUTO_IS_NULL; args=None
+(0.000) SELECT VERSION(); args=None
+(0.003) SHOW FULL TABLES; args=None
+(0.002) SELECT `django_migrations`.`app`, `django_migrations`.`name` FROM `django_migrations`; args=()
+(0.000) SELECT @@SQL_AUTO_IS_NULL; args=None
+(0.000) SELECT VERSION(); args=None
+(0.000) SELECT @@SQL_AUTO_IS_NULL; args=None
+(0.001) SELECT VERSION(); args=None
+(0.001) SELECT `django_session`.`session_key`, `django_session`.`session_data`, `django_session`.`expire_date` FROM `django_session` WHERE (`django_session`.`session_key` = '992yz1vagi3q6npgrogc5v8u9yjg7ed7' AND `django_session`.`expire_date` > '2019-04-18 14:15:29'); args=('992yz1vagi3q6npgrogc5v8u9yjg7ed7', '2019-04-18 14:15:29')
+Exception while resolving variable 'loginUser' in template 'users/register.html'.
+Traceback (most recent call last):
+  File "D:\mysoft\webEvn\webevn\lib\site-packages\django\template\base.py", line 882, in _resolve_lookup
+    current = current[bit]
+  File "D:\mysoft\webEvn\webevn\lib\site-packages\django\contrib\sessions\backends\base.py", line 57, in __getitem__
+    return self._session[key]
+KeyError: 'loginUser'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\mysoft\webEvn\webevn\lib\site-packages\django\template\base.py", line 890, in _resolve_lookup
+    current = getattr(current, bit)
+AttributeError: 'SessionStore' object has no attribute 'loginUser'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\mysoft\webEvn\webevn\lib\site-packages\django\template\base.py", line 896, in _resolve_lookup
+    current = current[int(bit)]
+ValueError: invalid literal for int() with base 10: 'loginUser'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\mysoft\webEvn\webevn\lib\site-packages\django\template\base.py", line 903, in _resolve_lookup
+    (bit, current))  # missing attribute
+django.template.base.VariableDoesNotExist: Failed lookup for key [loginUser] in '<django.contrib.sessions.backends.db.SessionStore object at 0x0000020F59189C18>'
+Exception while resolving variable 'loginUser' in template 'users/register.html'.
+Traceback (most recent call last):
+  File "D:\mysoft\webEvn\webevn\lib\site-packages\django\template\base.py", line 882, in _resolve_lookup
+    current = current[bit]
+  File "D:\mysoft\webEvn\webevn\lib\site-packages\django\contrib\sessions\backends\base.py", line 57, in __getitem__
+    return self._session[key]
+KeyError: 'loginUser'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\mysoft\webEvn\webevn\lib\site-packages\django\template\base.py", line 890, in _resolve_lookup
+    current = getattr(current, bit)
+AttributeError: 'SessionStore' object has no attribute 'loginUser'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\mysoft\webEvn\webevn\lib\site-packages\django\template\base.py", line 896, in _resolve_lookup
+    current = current[int(bit)]
+ValueError: invalid literal for int() with base 10: 'loginUser'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\mysoft\webEvn\webevn\lib\site-packages\django\template\base.py", line 903, in _resolve_lookup
+    (bit, current))  # missing attribute
+django.template.base.VariableDoesNotExist: Failed lookup for key [loginUser] in '<django.contrib.sessions.backends.db.SessionStore object at 0x0000020F59189C18>'
+Exception while resolving variable 'loginUser' in template 'users/register.html'.
+Traceback (most recent call last):
+  File "D:\mysoft\webEvn\webevn\lib\site-packages\django\template\base.py", line 882, in _resolve_lookup
+    current = current[bit]
+  File "D:\mysoft\webEvn\webevn\lib\site-packages\django\contrib\sessions\backends\base.py", line 57, in __getitem__
+    return self._session[key]
+KeyError: 'loginUser'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\mysoft\webEvn\webevn\lib\site-packages\django\template\base.py", line 890, in _resolve_lookup
+    current = getattr(current, bit)
+AttributeError: 'SessionStore' object has no attribute 'loginUser'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\mysoft\webEvn\webevn\lib\site-packages\django\template\base.py", line 896, in _resolve_lookup
+    current = current[int(bit)]
+ValueError: invalid literal for int() with base 10: 'loginUser'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\mysoft\webEvn\webevn\lib\site-packages\django\template\base.py", line 903, in _resolve_lookup
+    (bit, current))  # missing attribute
+django.template.base.VariableDoesNotExist: Failed lookup for key [loginUser] in '<django.contrib.sessions.backends.db.SessionStore object at 0x0000020F59189C18>'
+"GET /users/register/ HTTP/1.1" 200 11214
+"GET /users/register/ HTTP/1.1" 500 59
+(0.001) SELECT `django_session`.`session_key`, `django_session`.`session_data`, `django_session`.`expire_date` FROM `django_session` WHERE (`django_session`.`session_key` = '992yz1vagi3q6npgrogc5v8u9yjg7ed7' AND `django_session`.`expire_date` > '2019-04-18 14:15:29'); args=('992yz1vagi3q6npgrogc5v8u9yjg7ed7', '2019-04-18 14:15:29')
+Exception while resolving variable 'loginUser' in template 'users/register.html'.
+Traceback (most recent call last):
+  File "D:\mysoft\webEvn\webevn\lib\site-packages\django\template\base.py", line 882, in _resolve_lookup
+    current = current[bit]
+  File "D:\mysoft\webEvn\webevn\lib\site-packages\django\contrib\sessions\backends\base.py", line 57, in __getitem__
+    return self._session[key]
+KeyError: 'loginUser'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\mysoft\webEvn\webevn\lib\site-packages\django\template\base.py", line 890, in _resolve_lookup
+    current = getattr(current, bit)
+AttributeError: 'SessionStore' object has no attribute 'loginUser'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\mysoft\webEvn\webevn\lib\site-packages\django\template\base.py", line 896, in _resolve_lookup
+    current = current[int(bit)]
+ValueError: invalid literal for int() with base 10: 'loginUser'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\mysoft\webEvn\webevn\lib\site-packages\django\template\base.py", line 903, in _resolve_lookup
+    (bit, current))  # missing attribute
+django.template.base.VariableDoesNotExist: Failed lookup for key [loginUser] in '<django.contrib.sessions.backends.db.SessionStore object at 0x0000020F591EE470>'
+Exception while resolving variable 'loginUser' in template 'users/register.html'.
+Traceback (most recent call last):
+  File "D:\mysoft\webEvn\webevn\lib\site-packages\django\template\base.py", line 882, in _resolve_lookup
+    current = current[bit]
+  File "D:\mysoft\webEvn\webevn\lib\site-packages\django\contrib\sessions\backends\base.py", line 57, in __getitem__
+    return self._session[key]
+KeyError: 'loginUser'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\mysoft\webEvn\webevn\lib\site-packages\django\template\base.py", line 890, in _resolve_lookup
+    current = getattr(current, bit)
+AttributeError: 'SessionStore' object has no attribute 'loginUser'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\mysoft\webEvn\webevn\lib\site-packages\django\template\base.py", line 896, in _resolve_lookup
+    current = current[int(bit)]
+ValueError: invalid literal for int() with base 10: 'loginUser'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\mysoft\webEvn\webevn\lib\site-packages\django\template\base.py", line 903, in _resolve_lookup
+    (bit, current))  # missing attribute
+django.template.base.VariableDoesNotExist: Failed lookup for key [loginUser] in '<django.contrib.sessions.backends.db.SessionStore object at 0x0000020F591EE470>'
+Exception while resolving variable 'loginUser' in template 'users/register.html'.
+Traceback (most recent call last):
+  File "D:\mysoft\webEvn\webevn\lib\site-packages\django\template\base.py", line 882, in _resolve_lookup
+    current = current[bit]
+  File "D:\mysoft\webEvn\webevn\lib\site-packages\django\contrib\sessions\backends\base.py", line 57, in __getitem__
+    return self._session[key]
+KeyError: 'loginUser'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\mysoft\webEvn\webevn\lib\site-packages\django\template\base.py", line 890, in _resolve_lookup
+    current = getattr(current, bit)
+AttributeError: 'SessionStore' object has no attribute 'loginUser'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\mysoft\webEvn\webevn\lib\site-packages\django\template\base.py", line 896, in _resolve_lookup
+    current = current[int(bit)]
+ValueError: invalid literal for int() with base 10: 'loginUser'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\mysoft\webEvn\webevn\lib\site-packages\django\template\base.py", line 903, in _resolve_lookup
+    (bit, current))  # missing attribute
+django.template.base.VariableDoesNotExist: Failed lookup for key [loginUser] in '<django.contrib.sessions.backends.db.SessionStore object at 0x0000020F591EE470>'
+"GET /users/register/ HTTP/1.1" 200 11214
+(0.000) SELECT @@SQL_AUTO_IS_NULL; args=None
+(0.000) SELECT VERSION(); args=None
+(0.001) SELECT `django_session`.`session_key`, `django_session`.`session_data`, `django_session`.`expire_date` FROM `django_session` WHERE (`django_session`.`session_key` = '992yz1vagi3q6npgrogc5v8u9yjg7ed7' AND `django_session`.`expire_date` > '2019-04-18 14:15:31'); args=('992yz1vagi3q6npgrogc5v8u9yjg7ed7', '2019-04-18 14:15:31')
+(0.002) UPDATE `django_session` SET `session_data` = 'MjE3MjQyYmVhYTBjMWQ4ODViMGQ0MWM3NWI3NDRiMzdhZGYxMmUwMTp7ImNvZGUiOiJiNmRqIn0=', `expire_date` = '2019-05-02 14:15:33' WHERE `django_session`.`session_key` = '992yz1vagi3q6npgrogc5v8u9yjg7ed7'; args=('MjE3MjQyYmVhYTBjMWQ4ODViMGQ0MWM3NWI3NDRiMzdhZGYxMmUwMTp7ImNvZGUiOiJiNmRqIn0=', '2019-05-02 14:15:33', '992yz1vagi3q6npgrogc5v8u9yjg7ed7')
+"GET /users/code/ HTTP/1.1" 200 1418
+(0.001) SELECT @@SQL_AUTO_IS_NULL; args=None
+(0.001) SELECT VERSION(); args=None
+(0.001) SELECT `auth_user`.`id`, `auth_user`.`password`, `auth_user`.`last_login`, `auth_user`.`is_superuser`, `auth_user`.`username`, `auth_user`.`first_name`, `auth_user`.`last_name`, `auth_user`.`email`, `auth_user`.`is_staff`, `auth_user`.`is_active`, `auth_user`.`date_joined` FROM `auth_user` WHERE `auth_user`.`username` = 'maobuyi'; args=('maobuyi',)
+"POST /users/check_user/ HTTP/1.1" 200 60
+(0.000) SELECT @@SQL_AUTO_IS_NULL; args=None
+(0.001) SELECT VERSION(); args=None
+(0.001) SELECT `django_session`.`session_key`, `django_session`.`session_data`, `django_session`.`expire_date` FROM `django_session` WHERE (`django_session`.`session_key` = '992yz1vagi3q6npgrogc5v8u9yjg7ed7' AND `django_session`.`expire_date` > '2019-04-18 14:16:01'); args=('992yz1vagi3q6npgrogc5v8u9yjg7ed7', '2019-04-18 14:16:01')
+(0.001) INSERT INTO `auth_user` (`password`, `last_login`, `is_superuser`, `username`, `first_name`, `last_name`, `email`, `is_staff`, `is_active`, `date_joined`) VALUES ('pbkdf2_sha256$36000$FRhC6kmX6mZv$HxzmyoKjxgkv84q9LHQy4EHyg0alblABduL6UmAhkXQ=', NULL, 0, 'maobuyi', '', '', '', 0, 1, '2019-04-18 14:16:03'); args=['pbkdf2_sha256$36000$FRhC6kmX6mZv$HxzmyoKjxgkv84q9LHQy4EHyg0alblABduL6UmAhkXQ=', None, False, 'maobuyi', '', '', '', False, True, '2019-04-18 14:16:03']
+请认真填写如下选项
+Exception while resolving variable 'loginUser' in template 'users/register.html'.
+Traceback (most recent call last):
+  File "D:\mysoft\webEvn\project\shopping\myshopping\users\views.py", line 73, in register
+    password = utils.hashlib_hmc(password)
+  File "D:\mysoft\webEvn\project\shopping\myshopping\users\utils.py", line 33, in hashlib_hmc
+    return hmac.new(password.encode("utf-8"),settings.SALT.encode("utf-8"),"MD5").hexdigest()
+  File "D:\mysoft\webEvn\webevn\lib\site-packages\django\conf\__init__.py", line 57, in __getattr__
+    val = getattr(self._wrapped, name)
+AttributeError: 'Settings' object has no attribute 'SALT'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\mysoft\webEvn\project\shopping\myshopping\users\views.py", line 80, in register
+    userinfo = models.User.objects(nikename=nikename)
+TypeError: 'UserManager' object is not callable
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\mysoft\webEvn\webevn\lib\site-packages\django\template\base.py", line 882, in _resolve_lookup
+    current = current[bit]
+  File "D:\mysoft\webEvn\webevn\lib\site-packages\django\contrib\sessions\backends\base.py", line 57, in __getitem__
+    return self._session[key]
+KeyError: 'loginUser'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\mysoft\webEvn\webevn\lib\site-packages\django\template\base.py", line 890, in _resolve_lookup
+    current = getattr(current, bit)
+AttributeError: 'SessionStore' object has no attribute 'loginUser'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\mysoft\webEvn\webevn\lib\site-packages\django\template\base.py", line 896, in _resolve_lookup
+    current = current[int(bit)]
+ValueError: invalid literal for int() with base 10: 'loginUser'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\mysoft\webEvn\webevn\lib\site-packages\django\template\base.py", line 903, in _resolve_lookup
+    (bit, current))  # missing attribute
+django.template.base.VariableDoesNotExist: Failed lookup for key [loginUser] in '<django.contrib.sessions.backends.db.SessionStore object at 0x0000020F591FA828>'
+Exception while resolving variable 'loginUser' in template 'users/register.html'.
+Traceback (most recent call last):
+  File "D:\mysoft\webEvn\project\shopping\myshopping\users\views.py", line 73, in register
+    password = utils.hashlib_hmc(password)
+  File "D:\mysoft\webEvn\project\shopping\myshopping\users\utils.py", line 33, in hashlib_hmc
+    return hmac.new(password.encode("utf-8"),settings.SALT.encode("utf-8"),"MD5").hexdigest()
+  File "D:\mysoft\webEvn\webevn\lib\site-packages\django\conf\__init__.py", line 57, in __getattr__
+    val = getattr(self._wrapped, name)
+AttributeError: 'Settings' object has no attribute 'SALT'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\mysoft\webEvn\project\shopping\myshopping\users\views.py", line 80, in register
+    userinfo = models.User.objects(nikename=nikename)
+TypeError: 'UserManager' object is not callable
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\mysoft\webEvn\webevn\lib\site-packages\django\template\base.py", line 882, in _resolve_lookup
+    current = current[bit]
+  File "D:\mysoft\webEvn\webevn\lib\site-packages\django\contrib\sessions\backends\base.py", line 57, in __getitem__
+    return self._session[key]
+KeyError: 'loginUser'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\mysoft\webEvn\webevn\lib\site-packages\django\template\base.py", line 890, in _resolve_lookup
+    current = getattr(current, bit)
+AttributeError: 'SessionStore' object has no attribute 'loginUser'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\mysoft\webEvn\webevn\lib\site-packages\django\template\base.py", line 896, in _resolve_lookup
+    current = current[int(bit)]
+ValueError: invalid literal for int() with base 10: 'loginUser'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\mysoft\webEvn\webevn\lib\site-packages\django\template\base.py", line 903, in _resolve_lookup
+    (bit, current))  # missing attribute
+django.template.base.VariableDoesNotExist: Failed lookup for key [loginUser] in '<django.contrib.sessions.backends.db.SessionStore object at 0x0000020F591FA828>'
+Exception while resolving variable 'loginUser' in template 'users/register.html'.
+Traceback (most recent call last):
+  File "D:\mysoft\webEvn\project\shopping\myshopping\users\views.py", line 73, in register
+    password = utils.hashlib_hmc(password)
+  File "D:\mysoft\webEvn\project\shopping\myshopping\users\utils.py", line 33, in hashlib_hmc
+    return hmac.new(password.encode("utf-8"),settings.SALT.encode("utf-8"),"MD5").hexdigest()
+  File "D:\mysoft\webEvn\webevn\lib\site-packages\django\conf\__init__.py", line 57, in __getattr__
+    val = getattr(self._wrapped, name)
+AttributeError: 'Settings' object has no attribute 'SALT'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\mysoft\webEvn\project\shopping\myshopping\users\views.py", line 80, in register
+    userinfo = models.User.objects(nikename=nikename)
+TypeError: 'UserManager' object is not callable
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\mysoft\webEvn\webevn\lib\site-packages\django\template\base.py", line 882, in _resolve_lookup
+    current = current[bit]
+  File "D:\mysoft\webEvn\webevn\lib\site-packages\django\contrib\sessions\backends\base.py", line 57, in __getitem__
+    return self._session[key]
+KeyError: 'loginUser'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\mysoft\webEvn\webevn\lib\site-packages\django\template\base.py", line 890, in _resolve_lookup
+    current = getattr(current, bit)
+AttributeError: 'SessionStore' object has no attribute 'loginUser'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\mysoft\webEvn\webevn\lib\site-packages\django\template\base.py", line 896, in _resolve_lookup
+    current = current[int(bit)]
+ValueError: invalid literal for int() with base 10: 'loginUser'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\mysoft\webEvn\webevn\lib\site-packages\django\template\base.py", line 903, in _resolve_lookup
+    (bit, current))  # missing attribute
+django.template.base.VariableDoesNotExist: Failed lookup for key [loginUser] in '<django.contrib.sessions.backends.db.SessionStore object at 0x0000020F591FA828>'
+"POST /users/register/ HTTP/1.1" 200 11217
+(0.000) SELECT @@SQL_AUTO_IS_NULL; args=None
+(0.000) SELECT VERSION(); args=None
+(0.000) SELECT `django_session`.`session_key`, `django_session`.`session_data`, `django_session`.`expire_date` FROM `django_session` WHERE (`django_session`.`session_key` = '992yz1vagi3q6npgrogc5v8u9yjg7ed7' AND `django_session`.`expire_date` > '2019-04-18 14:16:03'); args=('992yz1vagi3q6npgrogc5v8u9yjg7ed7', '2019-04-18 14:16:03')
+(0.000) UPDATE `django_session` SET `session_data` = 'MjdlODMzZDg4NGFmMDRkMmE0NDI2OWI5MGNkMTIwMzdlZDcwN2M5ZTp7ImNvZGUiOiI1aWhoIn0=', `expire_date` = '2019-05-02 14:16:05' WHERE `django_session`.`session_key` = '992yz1vagi3q6npgrogc5v8u9yjg7ed7'; args=('MjdlODMzZDg4NGFmMDRkMmE0NDI2OWI5MGNkMTIwMzdlZDcwN2M5ZTp7ImNvZGUiOiI1aWhoIn0=', '2019-05-02 14:16:05', '992yz1vagi3q6npgrogc5v8u9yjg7ed7')
+"GET /users/code/ HTTP/1.1" 200 1273
+(0.000) SELECT @@SQL_AUTO_IS_NULL; args=None
+(0.000) SELECT VERSION(); args=None
+(0.004) SHOW FULL TABLES; args=None
+(0.001) SELECT `django_migrations`.`app`, `django_migrations`.`name` FROM `django_migrations`; args=()
+(0.000) SELECT @@SQL_AUTO_IS_NULL; args=None
+(0.000) SELECT VERSION(); args=None
+(0.002) SELECT `auth_user`.`id`, `auth_user`.`password`, `auth_user`.`last_login`, `auth_user`.`is_superuser`, `auth_user`.`username`, `auth_user`.`first_name`, `auth_user`.`last_name`, `auth_user`.`email`, `auth_user`.`is_staff`, `auth_user`.`is_active`, `auth_user`.`date_joined` FROM `auth_user` WHERE `auth_user`.`username` = 'bicaqiu'; args=('bicaqiu',)
+"POST /users/check_user/ HTTP/1.1" 200 60
+(0.001) SELECT @@SQL_AUTO_IS_NULL; args=None
+(0.001) SELECT VERSION(); args=None
+(0.000) SELECT @@SQL_AUTO_IS_NULL; args=None
+(0.000) SELECT VERSION(); args=None
+(0.001) SELECT `auth_user`.`id`, `auth_user`.`password`, `auth_user`.`last_login`, `auth_user`.`is_superuser`, `auth_user`.`username`, `auth_user`.`first_name`, `auth_user`.`last_name`, `auth_user`.`email`, `auth_user`.`is_staff`, `auth_user`.`is_active`, `auth_user`.`date_joined` FROM `auth_user` WHERE `auth_user`.`username` = 'bicaqiu'; args=('bicaqiu',)
+"POST /users/check_user/ HTTP/1.1" 200 60
+(0.001) SELECT `django_session`.`session_key`, `django_session`.`session_data`, `django_session`.`expire_date` FROM `django_session` WHERE (`django_session`.`session_key` = '992yz1vagi3q6npgrogc5v8u9yjg7ed7' AND `django_session`.`expire_date` > '2019-04-18 14:18:20'); args=('992yz1vagi3q6npgrogc5v8u9yjg7ed7', '2019-04-18 14:18:20')
+(0.000) INSERT INTO `auth_user` (`password`, `last_login`, `is_superuser`, `username`, `first_name`, `last_name`, `email`, `is_staff`, `is_active`, `date_joined`) VALUES ('pbkdf2_sha256$36000$eHKgluzr4Um0$H3xsnpGQ36rKVE1m0tFPtdKbKieyLkL+edH0ZBqkPy8=', NULL, 0, 'bicaqiu', '', '', '', 0, 1, '2019-04-18 14:18:22'); args=['pbkdf2_sha256$36000$eHKgluzr4Um0$H3xsnpGQ36rKVE1m0tFPtdKbKieyLkL+edH0ZBqkPy8=', None, False, 'bicaqiu', '', '', '', False, True, '2019-04-18 14:18:22']
+请认真填写如下选项
+Exception while resolving variable 'loginUser' in template 'users/register.html'.
+Traceback (most recent call last):
+  File "D:\mysoft\webEvn\project\shopping\myshopping\users\views.py", line 73, in register
+    password = utils.hashlib_hmc(password)
+  File "D:\mysoft\webEvn\project\shopping\myshopping\users\utils.py", line 33, in hashlib_hmc
+    return hmac.new(password.encode("utf-8"),settings.SALT.encode("utf-8"),"MD5").hexdigest()
+  File "D:\mysoft\webEvn\webevn\lib\site-packages\django\conf\__init__.py", line 57, in __getattr__
+    val = getattr(self._wrapped, name)
+AttributeError: 'Settings' object has no attribute 'SALT'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\mysoft\webEvn\project\shopping\myshopping\users\views.py", line 80, in register
+    userinfo = models.User.objects(nikename=nikename)
+TypeError: 'UserManager' object is not callable
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\mysoft\webEvn\webevn\lib\site-packages\django\template\base.py", line 882, in _resolve_lookup
+    current = current[bit]
+  File "D:\mysoft\webEvn\webevn\lib\site-packages\django\contrib\sessions\backends\base.py", line 57, in __getitem__
+    return self._session[key]
+KeyError: 'loginUser'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\mysoft\webEvn\webevn\lib\site-packages\django\template\base.py", line 890, in _resolve_lookup
+    current = getattr(current, bit)
+AttributeError: 'SessionStore' object has no attribute 'loginUser'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\mysoft\webEvn\webevn\lib\site-packages\django\template\base.py", line 896, in _resolve_lookup
+    current = current[int(bit)]
+ValueError: invalid literal for int() with base 10: 'loginUser'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\mysoft\webEvn\webevn\lib\site-packages\django\template\base.py", line 903, in _resolve_lookup
+    (bit, current))  # missing attribute
+django.template.base.VariableDoesNotExist: Failed lookup for key [loginUser] in '<django.contrib.sessions.backends.db.SessionStore object at 0x0000024A6B4EDA90>'
+Exception while resolving variable 'loginUser' in template 'users/register.html'.
+Traceback (most recent call last):
+  File "D:\mysoft\webEvn\project\shopping\myshopping\users\views.py", line 73, in register
+    password = utils.hashlib_hmc(password)
+  File "D:\mysoft\webEvn\project\shopping\myshopping\users\utils.py", line 33, in hashlib_hmc
+    return hmac.new(password.encode("utf-8"),settings.SALT.encode("utf-8"),"MD5").hexdigest()
+  File "D:\mysoft\webEvn\webevn\lib\site-packages\django\conf\__init__.py", line 57, in __getattr__
+    val = getattr(self._wrapped, name)
+AttributeError: 'Settings' object has no attribute 'SALT'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\mysoft\webEvn\project\shopping\myshopping\users\views.py", line 80, in register
+    userinfo = models.User.objects(nikename=nikename)
+TypeError: 'UserManager' object is not callable
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\mysoft\webEvn\webevn\lib\site-packages\django\template\base.py", line 882, in _resolve_lookup
+    current = current[bit]
+  File "D:\mysoft\webEvn\webevn\lib\site-packages\django\contrib\sessions\backends\base.py", line 57, in __getitem__
+    return self._session[key]
+KeyError: 'loginUser'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\mysoft\webEvn\webevn\lib\site-packages\django\template\base.py", line 890, in _resolve_lookup
+    current = getattr(current, bit)
+AttributeError: 'SessionStore' object has no attribute 'loginUser'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\mysoft\webEvn\webevn\lib\site-packages\django\template\base.py", line 896, in _resolve_lookup
+    current = current[int(bit)]
+ValueError: invalid literal for int() with base 10: 'loginUser'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\mysoft\webEvn\webevn\lib\site-packages\django\template\base.py", line 903, in _resolve_lookup
+    (bit, current))  # missing attribute
+django.template.base.VariableDoesNotExist: Failed lookup for key [loginUser] in '<django.contrib.sessions.backends.db.SessionStore object at 0x0000024A6B4EDA90>'
+Exception while resolving variable 'loginUser' in template 'users/register.html'.
+Traceback (most recent call last):
+  File "D:\mysoft\webEvn\project\shopping\myshopping\users\views.py", line 73, in register
+    password = utils.hashlib_hmc(password)
+  File "D:\mysoft\webEvn\project\shopping\myshopping\users\utils.py", line 33, in hashlib_hmc
+    return hmac.new(password.encode("utf-8"),settings.SALT.encode("utf-8"),"MD5").hexdigest()
+  File "D:\mysoft\webEvn\webevn\lib\site-packages\django\conf\__init__.py", line 57, in __getattr__
+    val = getattr(self._wrapped, name)
+AttributeError: 'Settings' object has no attribute 'SALT'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\mysoft\webEvn\project\shopping\myshopping\users\views.py", line 80, in register
+    userinfo = models.User.objects(nikename=nikename)
+TypeError: 'UserManager' object is not callable
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\mysoft\webEvn\webevn\lib\site-packages\django\template\base.py", line 882, in _resolve_lookup
+    current = current[bit]
+  File "D:\mysoft\webEvn\webevn\lib\site-packages\django\contrib\sessions\backends\base.py", line 57, in __getitem__
+    return self._session[key]
+KeyError: 'loginUser'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\mysoft\webEvn\webevn\lib\site-packages\django\template\base.py", line 890, in _resolve_lookup
+    current = getattr(current, bit)
+AttributeError: 'SessionStore' object has no attribute 'loginUser'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\mysoft\webEvn\webevn\lib\site-packages\django\template\base.py", line 896, in _resolve_lookup
+    current = current[int(bit)]
+ValueError: invalid literal for int() with base 10: 'loginUser'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\mysoft\webEvn\webevn\lib\site-packages\django\template\base.py", line 903, in _resolve_lookup
+    (bit, current))  # missing attribute
+django.template.base.VariableDoesNotExist: Failed lookup for key [loginUser] in '<django.contrib.sessions.backends.db.SessionStore object at 0x0000024A6B4EDA90>'
+"POST /users/register/ HTTP/1.1" 200 11217
+"GET /static/css/index.css HTTP/1.1" 304 0
+(0.000) SELECT @@SQL_AUTO_IS_NULL; args=None
+(0.000) SELECT VERSION(); args=None
+(0.000) SELECT `django_session`.`session_key`, `django_session`.`session_data`, `django_session`.`expire_date` FROM `django_session` WHERE (`django_session`.`session_key` = '992yz1vagi3q6npgrogc5v8u9yjg7ed7' AND `django_session`.`expire_date` > '2019-04-18 14:18:22'); args=('992yz1vagi3q6npgrogc5v8u9yjg7ed7', '2019-04-18 14:18:22')
+(0.000) UPDATE `django_session` SET `session_data` = 'ZTlhOWIyZDhlMGJiNjI1MDRjYzQ0NTJhMGIwMjVjMWFhM2E2YjVkODp7ImNvZGUiOiI0YTEzIn0=', `expire_date` = '2019-05-02 14:18:24' WHERE `django_session`.`session_key` = '992yz1vagi3q6npgrogc5v8u9yjg7ed7'; args=('ZTlhOWIyZDhlMGJiNjI1MDRjYzQ0NTJhMGIwMjVjMWFhM2E2YjVkODp7ImNvZGUiOiI0YTEzIn0=', '2019-05-02 14:18:24', '992yz1vagi3q6npgrogc5v8u9yjg7ed7')
+"GET /users/code/ HTTP/1.1" 200 1512
+(0.000) SELECT @@SQL_AUTO_IS_NULL; args=None
+(0.000) SELECT VERSION(); args=None
+(0.006) SHOW FULL TABLES; args=None
+(0.001) SELECT `django_migrations`.`app`, `django_migrations`.`name` FROM `django_migrations`; args=()
+(0.000) SELECT @@SQL_AUTO_IS_NULL; args=None
+(0.000) SELECT VERSION(); args=None
+(0.064) SHOW FULL TABLES; args=None
+(0.001) SELECT `django_migrations`.`app`, `django_migrations`.`name` FROM `django_migrations`; args=()

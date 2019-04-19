@@ -1,0 +1,13 @@
+.main{
+margin:15px auto;
+height:400px;
+width:700px;
+text-align:center;
+}
+.list-group-item img{
+height:120px;
+width:120px;
+}
+.list-group-item:nth-child(1) {
+    text-align: center;
+}

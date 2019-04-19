@@ -1,0 +1,101 @@
+{% extends 'base.html' %}
+{% block title %}
+用户登录页面
+{% endblock %}
+{% block right %}
+<script>
+    function change_code() {
+        // $("#mycode").attr("src", "/users/code/?id="+ Math.random())
+        $("#mycode").attr("src", "/users/code/?id="+ new Date().getTime())
+    }
+
+</script>
+
+<div class="col-md-9">
+    <div class="panel panel-success">
+        <div class="panel-heading">
+            <h2 class="panel-title">用户登录</h2>
+        </div>
+        <div class="panel-body">
+            <form action="{% url 'users:login' %}" method="post" class="form-horizontal">
+                {% csrf_token %}
+                <h4 class="text-center text-danger">{{msg}}</h4>
+                <div class="form-group">
+                    <label for="username" class="col-sm-3 control-label">Username</label>
+                    <div class="col-sm-5">
+                        <input type="text" class="form-control" name="username" id="username" placeholder="username">
+                    </div>
+                    <div class="col-sm-3 error_msg"></div>
+                </div>
+                <div class="form-group">
+                    <label for="password" class="col-sm-3 control-label">Password</label>
+                    <div class="col-sm-5">
+                        <input type="password" class="form-control" name="password" id="password" placeholder="Password">
+                    </div>
+                </div>
+                {% if request.session.error_count >= 3 %}
+                <div class="form-group" style="">
+                    <label class="col-sm-3 control-label">验证码</label>
+                    <div class="col-sm-3">
+                        <input type="text" class="form-control" autocomplete="off" name="code" id="code" placeholder="验证码">
+                    </div>
+                     <div class="col-sm-3">
+                        <a href="#" onclick="change_code()" title="换一换"><img id="mycode" src="{% url 'users:code' %}" alt="验证码"></a>
+                    </div>
+                     <div class="col-sm-3">
+                         <a href="#" onclick="change_code()" title="换一换">换一换</a>
+                    </div>
+                </div>
+                {% endif %}
+
+                <div class="form-group">
+                    <div class="col-sm-offset-3 col-sm-8">
+                        <div class="checkbox">
+                            <label>
+                                <input type="checkbox"> Remember me
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-sm-offset-2 col-sm-10 text-center">
+                        <button type="submit" id="submit" class="btn btn-success" disabled>用户登录</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<script>
+	$(function(){
+		$("#username").on("blur", function () {
+            let $username = $("#username").val()
+            if ($username.trim() == "") {
+                alert("用户名称不能为空！！")
+                return;
+            }
+            $.ajax({
+				url:"/users/check_login/",
+				data: {"username": $username},
+				type:"POST",
+				dataType:"json",
+				success:function(data){
+					console.log(data)
+					if (data.issuccess){
+						$(".error_msg").html("<span style='color: green'>"+ data.msg +"</span>")
+						$("#submit").prop("disabled", false)
+
+					}else{
+						$(".error_msg").html("<span style='color:red'>"+ data.msg +"</span>")
+						$("#submit").prop("disabled", true)
+
+					}
+
+				}
+			})
+
+    })
+
+    })
+</script>
+{% endblock %}
