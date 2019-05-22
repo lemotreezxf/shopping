@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% block title %}
+开业大吉
+{% endblock %}
+{% block right %}
+<div class="col-md-9">
+    <div class="panel panel-success">
+        <div class="panel-heading">
+            <h2 class="panel-title">添加文章</h2>
+        </div>
+        <div class="panel-body">
+                <h4 class="text-center text-danger">{{msg}}</h4>
+                <div class="row">
+                    <form action="{% url 'stores:add'%}" method="post" enctype="multipart/form-data">
+                        {% csrf_token %}
+                        <div class="col-md-10 col-md-offset-1">
+                            <input type="text" id="title" name="name" class="form-control" placeholder="店铺名称">
+                        </div>
+                        <div class="col-md-10 col-md-offset-1">
+                            <input type="file" id="cover" name="cover" class="form-control" placeholder="店铺封面">
+                        </div>
+                        <div class="col-md-10 col-md-offset-1">
+                            <textarea id="intro" name="intro" class="form-control" cols="30" rows="20"></textarea>
+                        </div>
+                        <div class="col-md-10 col-md-offset-1 text-center">
+                            <button class="btn btn-danger submit">提交</button>
+                        </div>
+                    </form>
+                </div>
+        </div>
+    </div>
+</div>
+{% endblock%}

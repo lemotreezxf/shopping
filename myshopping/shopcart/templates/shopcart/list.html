@@ -1,0 +1,66 @@
+{% extends 'base.html' %}
+{% block title %}
+店铺列表
+{% endblock %}
+{% block left %}
+{% endblock%}
+{% block right %}
+<div class="col-md-10 col-md-offset-1">
+    <div class="panel panel-danger">
+        <div class="panel-heading">
+            <h2 class="panel-title">购物车</h2>
+        </div>
+        <div class="panel-body">
+            <h4 class="text-enter text-danger">{{msg}}</h4>
+            <form action="{% url 'orders:confirm' %}" method="post">
+                <div class="thumbnail">
+                    <h2 class="text-danger"><strong>全部商品</strong></h2>
+
+                        {% csrf_token%}
+                        <input style="margin-bottom:20px;" type="checkbox" onclick="change(this)" />全选
+                        <table class="table">
+                            {% for shopcart in shopcarts %}
+                            <tr>
+                                <td><input type="checkbox" class="all_check" name="g_id" value="{{shopcart.goods.id}}"></td>
+                                <td class="col-md-2"><img style="height:200px;width:200px;" src="/{{shopcart.goods.goodsimage_set.first.path}}" alt="..."></td>
+                                <td class="col-md-1"><a href="{% url 'goods:detail' shopcart.goods.id %}">商品名称：<br>{{shopcart.goods.name   | truncatechars:10}}</a></td>
+                                <td class="col-md-2"><a href="{% url 'goods:detail' shopcart.goods.id %}">{{shopcart.goods.intro  | truncatechars:30}}</a></td>
+                                <td class="col-md-2">商品单价：<strong>￥：{{shopcart.goods.price}}</strong></td>
+                                <td class="col-md-1">
+                                    商品数量：
+                                    <input style="width:30px;" type="number" id="count" value="{{shopcart.count}}">
+                                </td>
+                                <td class="col-md-1">小计金额：<br>{{shopcart.allTotal}}</td>
+                                <td class="col-md-2">
+                                    <ul class="nav">
+                                        <li><a href="#">移入收藏夹</a></li>
+                                        <li><a href="{% url 'shopcart:delete' shopcart.id %}">删除</a></li>
+                                        <li><a href="#">相似宝贝</a></li>
+                                    </ul>
+                                </td>
+
+                            </tr>
+                            {% endfor %}
+                        </table>
+                </div>
+                <div class="col-sm-offset-1 col-sm-10 text-center">
+                    <button type="submit" id="submit" class="btn btn-success">提交订单</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+		function change(node) {
+			var all_check = document.getElementsByClassName("all_check");
+			for (var i = 0; i < all_check.length; i++) {
+				if (node.checked == true) {
+					all_check[i].checked = true;
+				} else {
+					all_check[i].checked = false;
+				}
+			}
+		}
+
+	</script>
+{% endblock%}

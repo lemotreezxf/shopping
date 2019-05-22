@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+{% block title %}
+店铺修改页面
+{% endblock %}
+{% block right %}
+<div class="col-md-9">
+    <div class="panel panel-success">
+        <div class="panel-heading">
+            <h2 class="panel-title">店铺修改</h2>
+        </div>
+        <div class="panel-body">
+            <form action="{% url 'stores:update' store.id %}" method="post" class="form-horizontal">
+                {% csrf_token %}
+                <h4 class="text-center text-danger">{{msg}}</h4>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">店铺封面</label>
+                    <div class="col-sm-9">
+                        <img style="height:300px;width:250px;" src="/{{store.cover}}" alt="...">
+                        <input type="file" class="form-control" name="cover">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">店铺名称</label>
+                    <div class="col-sm-9">
+                        <input type="text" class="form-control" name="name" value="{{store.name}}">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">店铺简介</label>
+                    <div class="col-sm-9">
+                        <input type="text" class="form-control" name="intro" value="{{store.intro}}">
+                    </div>
+                </div>
+                <div class="form-group">
+                     <div class="col-sm-offset-2 col-sm-9 text-center">
+                          <button type="submit" class="btn btn-info">保存</button>
+                     </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}

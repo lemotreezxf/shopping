@@ -1,0 +1,84 @@
+{% extends 'base.html' %}
+{% block title %}
+用户地址添加页面
+{% endblock %}
+{% block left %}
+{% endblock%}
+{% block right %}
+{% load staticfiles %}
+<div class="col-md-10 col-md-offset-1">
+    <div class="panel panel-success">
+        <div class="panel-heading">
+            <a href="{% url 'users:info'%}" >
+                {% if user.is_authenticated %}
+                    <img src="/{{request.user.userinfo.avatar}}" class="img-circle avatar" style="width:50px;height:50px;">
+                    {% else %}
+                    <img src="{% static 'image/headers/pizhi.jpg' %}" class="img-circle avatar">
+                {% endif%}
+            </a>
+            <h2 class="panel-title text-center">添加地址</h2>
+        </div>
+        <div class="panel-body">
+            <form action="{% url 'users:address_add' %}" method="post">
+                {% csrf_token %}
+                <h4 class="text-center text-danger">{{msg}}</h4>
+                <div class="form-group">
+                    <label for="recv_name" class="col-sm-2 control-label text-right">收货人的名称</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" name="recv_name" id="recv_name" placeholder="收货人的名称">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="recv_tel" class="col-sm-2 control-label text-right">收货人的电话</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" name="recv_tel" id="recv_tel" placeholder="收货人的电话">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="province" class="col-sm-2 control-label text-right">收货人的省份</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" name="province" id="province" placeholder="收货人的省份">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="city" class="col-sm-2 control-label text-right">收货人的城市</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" name="city" id="city" placeholder="收货人的城市">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="area" class="col-sm-2 control-label text-right">收货人的地区</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" name="area" id="area" placeholder="收货人的地区">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="street" class="col-sm-2 control-label text-right">收货人街道</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" name="street" id="street" placeholder="收货人街道">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="desc" class="col-sm-2 control-label text-right">详情地址描述</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" name="desc" id="desc" placeholder="详情地址描述">
+                    </div>
+                </div>
+                 <div class="form-group">
+                    <label for="is_default" class="col-sm-2 control-label text-right">是否设置为默认地址</label>
+                    <div class="col-sm-10">
+                        <input type="checkbox" name="is_default" id="is_default" value="true">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-sm-offset-2 col-sm-8 text-center">
+                        <button type="submit" id="submit" class="btn btn-info">保存地址</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+{% endblock%}

@@ -1,0 +1,57 @@
+{% extends 'base.html' %}
+{% block title %}
+收货地址列表
+{% endblock %}
+{% block right %}
+ <div class="col-md-9">
+    <div class="panel panel-danger">
+        <div class="panel-heading">
+            <h2 class="panel-title">收货地址列表</h2>
+        </div>
+        <div class="panel-body">
+            <h4 class="text-enter text-danger">{{msg}}</h4>
+            <form action="#" method="post">
+                    <table class="table table-hover table-bordered table-striped">
+                    <thead>
+                    <tr>
+                        <th>收货人</th>
+                        <th>所在地址</th>
+                        <th>详细地址</th>
+                        <th>收货人的电话</th>
+                        <th>操作</th>
+                        <th></th>
+                    </tr>
+                    </thead>
+                    {% for address in addresses %}
+                    <tbody>
+                    <tr>
+                        <td>{{address.recv_name}}</td>
+                        <td>{{address.province}}{{address.city}}{{address.area}}</td>
+                        <td>{{address.desc}}</td>
+                        <td>{{address.recv_tel}}</td>
+
+                        <td>
+                            <a href="{% url 'users:address_update' address.id %}">修改</a>|<a href="{% url 'users:address_delete' address.id %}">删除</a>
+                        </td>
+                        <td>
+                            {% if address.is_default %}
+                            <p class="text-danger">默认收货地址</p>
+                            {% endif %}
+                        </td>
+                    </tr>
+                    {% empty %}
+                    <tr>
+                        <td colspan="7"> 对不起，当前没有用户，<a href="{% url 'blog:register'%}">请添加用户</a> </td>
+                    </tr>
+                    </tbody>
+                    {% endfor %}
+                </table>
+            </form>
+
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+
+

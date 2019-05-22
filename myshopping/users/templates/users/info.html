@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+{% block title %}
+个人信息
+{% endblock %}
+
+{% block right %}
+ <div class="col-md-9">
+     <div class="panel panel-success">
+         <div class="panel-heading">
+             <h2 class="panel-title">个人信息</h2>
+         </div>
+         <div class="panel-body">
+             <div class="form-group text-right">
+                 <a href="{% url 'users:edit'%}" class="btn btn-success">修改</a>
+             </div>
+             <h4 class="text-center text-danger">{{msg}}</h4>
+             <table class="table table-hover table-bordered table-striped">
+                 <tr>
+                     <td>用户名称</td>
+                     <td> {{request.user.username}}</td>
+                 </tr>
+                 <tr>
+                     <td>头像</td>
+                     <td><img style="height:200px;width:300px;" src="/{{ request.user.userinfo.avatar}}" alt=""></td>
+                 </tr>
+                 <tr>
+                     <td>昵称</td>
+                     <td> {{ request.user.userinfo.nikename }}</td>
+                 </tr>
+                 <tr>
+                     <td>用户性别</td>
+                     <td> {{ request.user.userinfo.gender }}</td>
+                 </tr>
+                 <tr>
+                     <td>用户年龄</td>
+                     <td> {{ request.user.userinfo.age }}</td>
+                 </tr>
+                 <tr>
+                     <td>联系方式</td>
+                     <td> {{ request.user.userinfo.phone }}</td>
+                 </tr>
+             </table>
+         </div>
+     </div>
+ </div>
+{% endblock %}
+
+
+

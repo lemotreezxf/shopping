@@ -1,4 +1,274 @@
 {% extends 'base.html' %}
-{% block title %}
-电商首页面
+{% block headlink %}
+<head>
+    <meta charset="UTF-8">
+    {% load staticfiles %}
+    <link rel="stylesheet" href="{% static 'css/index.css' %}">
+    <link rel="stylesheet" href="{% static 'js/lib/bootstrap-3.3.7-dist/css/bootstrap.css' %}">
+    <script src="{% static 'js/lib/jquery-1.12.4/jquery-1.12.4.js' %}"></script>
+    <script src="{% static 'js/lib/bootstrap-3.3.7-dist/js/bootstrap.js' %}"></script>
+    <title>shopping购物系统--{% block title%}首页面{% endblock %}</title>
+    <style>
+        .big-link { display:block;}
+        .list-group{
+            position:relative;
+        }
+        .con{
+            position:absolute;
+            width:1000px;
+            left:320px;
+            margin-top:-40px;
+            z-index:100;
+
+        }
+        .con li{
+            width:120px;
+            float:left;
+            <!--list-style:none;-->
+        }
+
+    </style>
+
+</head>
+{% endblock%}
+
+{% block top%}
 {% endblock %}
+{% block left%}
+
+<div class="col-md-3">
+    <div class="panel panel-success">
+        <div class="panel-heading">
+            <h4 class="text-center">主题市场</h4>
+        </div>
+        <div class="panel-body">
+            <ul class="list-group">
+                {% for type in allGoodsType %}
+                <a class="list-group-item tit text-center btn">
+                    <span class="text-center">{{type.name}}</span>
+                </a>
+
+                <ul class="con">
+                    {% for type2 in type.goodstype_set.all %}
+                    <li><a href="#">{{type2.name}}</a></li>
+                    {% endfor %}
+                </ul>
+                {% empty %}
+                <li class="list-group-item text-center">当前没有商品类型，<a href="#">请添加</a></li>
+                {% endfor %}
+
+            </ul>
+        </div>
+    </div>
+        </div>
+{% endblock %}
+
+{% block right%}
+<div class="col-md-9">
+    <div class="panel panel-success">
+        <div class="panel-heading">
+            <ul class="nav nav-pills" >
+                <li><a href="#">天猫</a></li>
+                <li><a href="#">聚划算</a></li>
+                <li><a href="#">天猫超市</a></li>
+                <li><a href="#">淘抢购</a></li>
+                <li><a href="#">电器城</a></li>
+                <li><a href="#">司法拍卖</a></li>
+                <li><a href="#">淘宝新选</a></li>
+                <li><a href="#">兴农扶贫</a></li>
+                <li><a href="#">飞猪旅行</a></li>
+                <li><a href="#">智能生活</a></li>
+                <li><a href="#">苏宁易购</a></li>
+            </ul>
+        </div>
+        <div class="panel-body">
+            <div style="height:680px;"></div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+{% block content %}
+<div class="row">
+    <div class="col-md-12">
+        <div class="panel panel-info">
+            <div class="panel-heading">
+                <h3 class="panel-title text-center">商品分类展示</h3>
+            </div>
+            <div class="panel-body">
+                <h4 class="text-center text-danger">{{msg}}</h4>
+                <h3>女装 / 男装 / 内衣</h3>
+                <div class="row">
+                  {% for good in good1_list %}
+                  <div class="col-md-3">
+                    <div class="thumbnail">
+                      <h3 class="text-center"><a href="{% url 'goods:detail' good.id %}">{{ good.name  | truncatechars:12}}</a></h3>
+                      <img style="height:300px;width:250px;" src="/{{good.goodsimage_set.all.first.path}}" alt="...">
+                      <div class="caption" style="min-height: 130px">
+                          <p><a href="{% url 'goods:detail' good.id %}">{{ good.intro  | truncatechars:40}}</a></p>
+                          <p><strong class="text-danger">Y:{{ good.price }}</strong>    ||已售：{{ good.count }}</p>
+                          <ul class="nav nav-pills">
+                              <a href="{% url 'goods:detail' good.id %}" class="btn btn-danger">查看商品详情</a>
+                              <a class="btn btn-info addGoods" good_id="{{good.id}}">加入购物车</a>
+                          </ul>
+                      </div>
+                    </div>
+                  </div>
+                    {% empty%}
+                    <div>
+                        对不起，当前没有商品，
+                    </div>
+                    {% endfor%}
+                </div>
+            </div>
+            <div class="panel-body">
+                <h4 class="text-center text-danger">{{msg}}</h4>
+                <h3>女装 / 男装 / 内衣</h3>
+                <div class="row">
+                  {% for good in good2_list %}
+                  <div class="col-md-3">
+                    <div class="thumbnail">
+                      <h3 class="text-center"><a href="{% url 'goods:detail' good.id %}">{{ good.name  | truncatechars:12}}</a></h3>
+                      <img style="height:300px;width:250px;" src="/{{good.goodsimage_set.all.first.path}}" alt="...">
+                      <div class="caption" style="min-height: 130px">
+                          <p><a href="{% url 'goods:detail' good.id %}">{{ good.intro  | truncatechars:40}}</a></p>
+                          <p><strong class="text-danger">Y:{{ good.price }}</strong>    ||已售：{{ good.count }}</p>
+                          <ul class="nav nav-pills">
+                              <a href="{% url 'goods:detail' good.id %}" class="btn btn-danger">查看商品详情</a>
+                              <a class="btn btn-info addGoods" good_id="{{good.id}}">加入购物车</a>
+                          </ul>
+                      </div>
+                    </div>
+                  </div>
+                    {% empty%}
+                    <div>
+                        对不起，当前没有商品，
+                    </div>
+                    {% endfor%}
+                </div>
+            </div>
+            <div class="panel-body">
+                <h4 class="text-center text-danger">{{msg}}</h4>
+                <h3>童装玩具 / 孕产 / 用品</h3>
+                <div class="row">
+                  {% for good in good3_list %}
+                  <div class="col-md-3">
+                    <div class="thumbnail">
+                      <h3 class="text-center"><a href="{% url 'goods:detail' good.id %}">{{ good.name  | truncatechars:12}}</a></h3>
+                      <img style="height:300px;width:250px;" src="/{{good.goodsimage_set.all.first.path}}" alt="...">
+                      <div class="caption" style="min-height: 130px">
+                          <p><a href="{% url 'goods:detail' good.id %}">{{ good.intro  | truncatechars:40}}</a></p>
+                          <p><strong class="text-danger">Y:{{ good.price }}</strong>    ||已售：{{ good.count }}</p>
+                          <ul class="nav nav-pills">
+                              <a href="{% url 'goods:detail' good.id %}" class="btn btn-danger">查看商品详情</a>
+                              <a class="btn btn-info addGoods" good_id="{{good.id}}">加入购物车</a>
+                          </ul>
+                      </div>
+                    </div>
+                  </div>
+                    {% empty%}
+                    <div>
+                        当前没有商品
+                    </div>
+                    {% endfor%}
+                </div>
+            </div>
+            <div class="panel-body">
+                <h4 class="text-center text-danger">{{msg}}</h4>
+                <h3>珠宝 / 眼镜 / 手表</h3>
+                <div class="row">
+                  {% for good in good4_list %}
+                  <div class="col-md-3">
+                    <div class="thumbnail">
+                      <h3 class="text-center"><a href="{% url 'goods:detail' good.id %}">{{ good.name  | truncatechars:12}}</a></h3>
+                      <img style="height:300px;width:250px;" src="/{{good.goodsimage_set.all.first.path}}" alt="...">
+                      <div class="caption" style="min-height: 130px">
+                          <p><a href="{% url 'goods:detail' good.id %}">{{ good.intro  | truncatechars:40}}</a></p>
+                          <p><strong class="text-danger">Y:{{ good.price }}</strong>    ||已售：{{ good.count }}</p>
+                          <ul class="nav nav-pills">
+                              <a href="{% url 'goods:detail' good.id %}" class="btn btn-danger">查看商品详情</a>
+                              <a class="btn btn-info addGoods" good_id="{{good.id}}">加入购物车</a>
+                          </ul>
+                      </div>
+                    </div>
+                  </div>
+                    {% empty%}
+                    <div>
+                        当前没有商品
+                    </div>
+                    {% endfor%}
+                </div>
+            </div>
+            <div class="panel-body">
+                <h4 class="text-center text-danger">{{msg}}</h4>
+                <h3>美妆 / 洗护 / 保健品</h3>
+                <div class="row">
+                  {% for good in good5_list %}
+                  <div class="col-md-3">
+                    <div class="thumbnail">
+                      <h3 class="text-center"><a href="{% url 'goods:detail' good.id %}">{{ good.name  | truncatechars:12}}</a></h3>
+                      <img style="height:300px;width:250px;" src="/{{good.goodsimage_set.all.first.path}}" alt="...">
+                      <div class="caption" style="min-height: 130px">
+                          <p><a href="{% url 'goods:detail' good.id %}">{{ good.intro  | truncatechars:40}}</a></p>
+                          <p><strong class="text-danger">Y:{{ good.price }}</strong>    ||已售：{{ good.count }}</p>
+                          <ul class="nav nav-pills">
+                              <a href="{% url 'goods:detail' good.id %}" class="btn btn-danger">查看商品详情</a>
+                              <a class="btn btn-info addGoods" good_id="{{good.id}}">加入购物车</a>
+                          </ul>
+                      </div>
+                    </div>
+                  </div>
+                    {% empty%}
+                    <div>
+                        当前没有商品
+                    </div>
+                    {% endfor%}
+                </div>
+            </div>
+            <div class="panel-body">
+                <h4 class="text-center text-danger">{{msg}}</h4>
+                <h3>运动 / 户外 / 乐器</h3>
+                <div class="row">
+                  {% for good in good6_list %}
+                  <div class="col-md-3">
+                    <div class="thumbnail">
+                      <h3 class="text-center"><a href="{% url 'goods:detail' good.id %}">{{ good.name  | truncatechars:12}}</a></h3>
+                      <img style="height:300px;width:250px;" src="/{{good.goodsimage_set.all.first.path}}" alt="...">
+                      <div class="caption" style="min-height: 130px">
+                          <p><a href="{% url 'goods:detail' good.id %}">{{ good.intro  | truncatechars:40}}</a></p>
+                          <p><strong class="text-danger">Y:{{ good.price }}</strong>    ||已售：{{ good.count }}</p>
+                          <ul class="nav nav-pills">
+                              <a href="{% url 'goods:detail' good.id %}" class="btn btn-danger">查看商品详情</a>
+                              <a class="btn btn-info addGoods" good_id="{{good.id}}">加入购物车</a>
+                          </ul>
+                      </div>
+                    </div>
+                  </div>
+                    {% empty%}
+                    <div>
+                        当前没有商品
+                    </div>
+                    {% endfor%}
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+<script>
+    $(function(){
+        $(".addGoods").click(function(){
+            var $good_id  = $(this).attr("good_id")
+            $.ajax({
+                url:"/shopcart/add/"+$good_id+"/1/",
+                type:"get",
+                success:function(msg){
+                    alert(msg)
+                },
+                error:function(msg){
+                    alert("添加失败，请重新添加")
+                }
+            })
+        }) ;
+    });
+</script>
+{% endblock%}

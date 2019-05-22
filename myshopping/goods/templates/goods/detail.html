@@ -1,0 +1,59 @@
+{% extends 'base.html' %}
+{% block title %}
+商品详情页面
+{% endblock %}
+{% block right %}
+<div class="col-md-9">
+     <div class="panel panel-success">
+         <div class="panel-heading">
+             <h2 class="panel-title">商品详情</h2>
+         </div>
+         <div class="panel-body">
+             <h4 class="text-enter text-danger">{{msg}}</h4>
+             <div class="row">
+                  <div class="col-md-6">
+                    <div class="thumbnail">
+                      <h3 class="text-center"><a href="#">{{ good.name  | truncatechars:12}}</a></h3>
+                      <img style="height:300px;width:250px;" src="/{{good.goodsimage_set.all.first.path}}" alt="...">
+                      <div class="caption" style="min-height: 130px">
+                          <p><a href="#">{{ good.intro  | truncatechars:50}}</a></p>
+                          <ul class="nav nav-pills">
+                              <li class="text-danger" ><a href="#" style="cursor:default;" >Y:{{ good.price }}</a></li>
+                              <li><a href="#" style="cursor:default;">库存：{{ good.stock }}</a></li>
+                              <li><a href="#" style="cursor:default;">已售：0</a></li>
+                          </ul>
+                      </div>
+                        <div class="text-center">
+                            <input style="width:30px;" type="number" id="count" value="1">
+                            <button class="btn-info addGoods" good_id="{{good.id}}">加入购物车</button>
+                        </div>
+                    </div>
+                  </div>
+                </div>
+
+         </div>
+     </div>
+ </div>
+
+<script>
+    $(function(){
+        $(".addGoods").click(function(){
+            var $good_id  = $(this).attr("good_id")
+            var $count  = $("#count").val()
+            if ($count <= 0){
+                alert("数量不能小于零")
+            }
+            $.ajax({
+                url:"/shopcart/add/"+$good_id+"/"+$count+"/",
+                type:"get",
+                success:function(msg){
+                    alert(msg)
+                },
+                error:function(msg){
+                    alert("添加失败，请重新添加")
+                }
+            })
+        }) ;
+    });
+</script>
+{% endblock%}

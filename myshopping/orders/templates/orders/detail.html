@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% block title %}
+所有订单页面
+{% endblock %}
+{% block left %}
+{% endblock%}
+{% block right %}
+<div class="col-md-10 col-md-offset-1">
+    <div class="panel panel-danger">
+        <div class="panel-heading">
+            <h2 class="panel-title">订单列表</h2>
+        </div>
+        <div class="panel-body">
+            <h4 class="text-enter text-danger">{{msg}}</h4>
+            <div class="thumbnail">
+                <h4 class="text-danger"><strong>全部订单</strong></h4>
+                {% for orderitem in orderitems%}
+                <table class="table">
+                    <tr>
+                        <td class="col-md-2"><img style="height:200px;width:200px;" src="/{{orderitem.goods_img}}" alt="..."></td>
+                        <td class="col-md-1">收件人：{{orderitem.order.recv_name}}</td>
+                        <td class="col-md-2">商品名称:{{orderitem.goods_name}}</td>
+                        <td class="col-md-2">商品价格：{{orderitem.goods_price}}</td>
+                        <td class="col-md-1">商品数量:{{orderitem.goods_count}}</td>
+                        <td class="col-md-1">商品总价：{{orderitem.goods_price_all}}</td>
+                    </tr>
+                    {% endfor%}
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock%}

@@ -1,0 +1,212 @@
+{% extends 'base.html' %}
+{% block title %}
+店铺详情页面
+{% endblock %}
+{% block right %}
+<style>
+
+</style>
+<div class="col-md-9">
+    <div class="panel panel-success">
+        <div class="panel-heading">
+            <h2 class="panel-title text-center">店铺详情</h2>
+        </div>
+        <div class="panel-body">
+            <h4 class="text-center text-danger">{{msg}}</h4>
+            <div class="row">
+                 <table class="table table-hover table-bordered table-striped">
+                     <tr>
+                         <td class="col-md-2">店铺名称</td>
+                         <td class="col-md-10"> {{store.name}}</td>
+                     </tr>
+                     <tr>
+                         <td>店铺封面</td>
+                         <td><img style="height:250px;width:300px;" src="/{{ store.cover}}" alt=""></td>
+                     </tr>
+                     <tr>
+                         <td>店铺简介</td>
+                         <td> {{ store.intro }}</td>
+                     </tr>
+                     <tr>
+                         <td>状态</td>
+                         <td>
+                             {% if store.status == 0 %}
+                             <p>正在营业</p>
+                             <a href="{% url 'stores:change' store.id 1 %}">关闭店铺</a>
+                             <a href="{% url 'stores:change' store.id 2 %}">删除店铺</a>
+                             {% elif store.status == 1 %}
+                             <p>暂停营业</p>
+                             <a href="{% url 'stores:change' store.id 0 %}">开启店铺</a>
+                             <a href="{% url 'stores:change' store.id 2 %}">删除店铺</a>
+                             {% elif store.status == 1 %}
+                             <p>店铺已被删除</p>
+                             {% endif %}
+                         </td>
+                     </tr>
+                     <tr>
+                         <td>操作</td>
+                         <td><a href="{% url 'stores:update' store.id%}" class="btn btn-success">修改店铺信息</a></td>
+                     </tr>
+                </table>
+
+            </div>
+        </div>
+        <div class="panel panel-danger">
+            <div class="panel-heading">
+                <h3 class="panel-title text-center">商品上架</h3>
+            </div>
+            <div class="panel-body">
+                <h4 class="text-center text-danger">{{msg}}</h4>
+                <div class="row">
+                    <form action="{% url 'goods:add' %}" method="post" enctype="multipart/form-data">
+                        {% csrf_token %}
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">商品名称</label>
+                            <div class="col-md-10">
+                                <input type="text" id="name" name="name" class="form-control" placeholder="商品名称">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">商品单价</label>
+                            <div class="col-md-10">
+                                <input type="number" id="price" name="price" class="form-control" placeholder="商品单价">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">商品库存</label>
+                            <div class="col-md-10">
+                                <input type="number" id="stock" name="stock" class="form-control" placeholder="商品库存">
+                            </div>
+                        </div>
+                        <input type="hidden" name="store" value="{{store.id}}">
+                        <div class="form-group" style="margin-top:20px;">
+                            <label class="col-sm-2 control-label">商品图片</label>
+                            <div class="col-md-10" style="margin-top:20px;">
+                                <input type="file" id="cover" name="cover" class="form-control" placeholder="商品图片">
+                                <button class="col-sm-4">继续添加</button>
+                            </div>
+
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">商品类型</label>
+                            <div class="col-md-10" style="margin-top:20px;">
+                                <ul class="nav nav-pills" >
+                                    <li class="col-md-6">
+                                        <select class="form-control " name="type1" id="type1">
+                                            {% for t in type1 %}
+                                            <option value="{{t.id}}">{{t.name}}</option>
+                                            {% endfor %}
+                                        </select>
+                                    </li>
+                                    <li class="col-md-5">
+                                        <select class="form-control" name="type2" id="type2">
+
+                                        </select>
+                                    </li>
+
+
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">商品介绍</label>
+                            <div class="col-md-10" style="margin-top:20px;">
+                                <textarea id="intro" name="intro" class="form-control" cols="30" rows="10"></textarea>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-md-10 col-md-offset-1 text-center">
+                                <button class="btn btn-danger submit">提交</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="panel panel-primary">
+            <div class="panel-heading">
+                <h3 class="panel-title text-center">店铺商品</h3>
+            </div>
+            <div class="panel-body">
+                <h4 class="text-enter text-danger">{{msg}}</h4>
+                <div class="row">
+                  {% for good in goods %}
+                  <div class="col-md-4">
+                    <div class="thumbnail">
+                      <h3 class="text-center"><a href="#">{{ good.name  | truncatechars:10}}</a></h3>
+                      <img style="height:300px;width:250px;" src="/{{good.goodsimage_set.all.first.path}}" alt="...">
+                      <div class="caption" style="min-height: 130px">
+                          <p><a href="#">{{ good.intro  | truncatechars:40}}</a></p>
+                          <ul class="nav nav-pills">
+                              <li class="text-danger" ><a href="#" style="cursor:default;" >Y:{{ good.price }}</a></li>
+                              <li><a href="#" style="cursor:default;">已售：0</a></li>
+                              <li><a href="{% url 'goods:delete' good.id %}">删除商品</a></li>
+                          </ul>
+                      </div>
+                      <div class="text-center">
+                          <a href="{% url 'goods:detail' good.id %}" class="btn btn-danger">查看商品详情</a>
+                          <a class="btn btn-info addGoods" good_id="{{good.id}}">加入购物车</a>
+                      </div>
+                    </div>
+                  </div>
+                    {% empty%}
+                    <div>
+                        对不起，当前没有商品，
+                    </div>
+                    {% endfor%}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    $(function(){
+        $("#type1").on("change",function(){
+            <!--alert($(this).val())-->
+            $.ajax({
+                url:"/goods/findType/",
+                type:"get",
+                data:{"parent_id":$(this).val()},
+                success:function(data){
+                $("#type2").empty()
+                data = JSON.parse(data);
+                for (var i = 0; i < data.length; i++ ){
+                    var type = data[i];
+                    $op = $("<option>");
+                    $op.attr("value",type.pk);
+                    $op.text(type.fields.name);
+                    $("#type2").append($op)
+
+                }
+                    console.info(data)
+                },
+                error:function(){
+                    alert("网络异常，请检查网络")
+                }
+
+
+            })
+
+        });
+    });
+</script>
+
+<script>
+    $(function(){
+        $(".addGoods").click(function(){
+            var $good_id  = $(this).attr("good_id")
+            $.ajax({
+                url:"/shopcart/add/"+$good_id+"/1/",
+                type:"get",
+                success:function(msg){
+                    alert(msg)
+                },
+                error:function(msg){
+                    alert("添加失败，请重新添加")
+                }
+            })
+        }) ;
+    });
+</script>
+{% endblock%}
+
